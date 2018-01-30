@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bouncing Box</title>
+	<script src="jquery.min.js"></script>
+
+<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+	<!-- BEGIN CSS -->
+	<style>
+		/* TODO 1 */
+		.box {
+			display: block;
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			top: 100px;
+			left: 0px;
+			background-color: teal;
+			font-size: 300%;
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body class="board">
+	<!-- HTML for the box -->
+	<div class="box">?</div>
+
+	<!-- BEGIN JAVASCRIPT -->
+	<script>
+		(function(){
+			'use strict';
+			/* global &*/
+
+			// Variable declarations
+			var box;
+			var boardWidth;
+			var update;
+			var handleBoxClick;
+
+			// jQuery stuff setup for you
+			box = $('.box');
+			boardWidth = $('.board').width();
+
+			// TODO 2
+			var position;
+			var speed;
+			var points;
+			
+			position = 0;
+			speed = 10;
+			points = 0;
+			box.css('left', position);
+			box.text(points);
+			// TODO 3 / 4
+			update = function() {
+				position = position + speed;
+				box.css('left', position);
+				box.text(points);
+			};
+			function getRandomInt(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			
+			// TODO 5 / 6
+			handleBoxClick = function() {
+				speed = speed + 3;
+				position = 0;
+				points = points + 1;
+				var r = getRandomInt(0, 255);
+			    var g = getRandomInt(0, 255);
+			    var b = getRandomInt(0, 255);
+				box.css('background-color', 'rgb(' + r + ',' + g + ',' + b + ')');
+			};
+			
+			//this calls update every 50 milliseconds
+			setInterval(update, 50);
+			// this calls the handle handleBoxClick function every time the box is clicked on
+			box.on('click', handleBoxClick);
+		})();
+	</script>
+</body>
+</html>
