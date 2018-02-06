@@ -21,6 +21,7 @@
 			font-size: 300%;
 			text-align: center;
 			border-style: double;
+			line-height: 70px;
 		}
 		body {
 			background: rgb(125, 198, 205);
@@ -62,15 +63,20 @@
 			var directionY;
 			var width;
 			var height;
+			var fontSize;
+			var sizeChange;
 			
+			sizeChange = 70;
 			width = 70;
 			height = 70;
 			positionX = 0;
 			positionY = 0;
 			directionX = 1;
 			directionY = 1;
+			fontSize = '300%';
 			speed = 10;
 			points = 0;
+			box.css('font-size', fontSize);
 			box.css('left', positionX);
 			box.css('top', positionY);
 			box.css('width', width);
@@ -110,11 +116,13 @@
 				} else if (speed >= 40) {
 					speed = speed + 3;
 				}
-				var sizeChange = getRandomInt(70, 210);
+				sizeChange = getRandomInt(70, 210);
 				height = sizeChange;
 				width = sizeChange;
 				box.css('height', height);
 				box.css('width', width);
+				fontSize = Math.floor(sizeChange * 4.29);
+				box.css('font-size', fontSize + '%');
 			};
 			
 			//this calls update every 50 milliseconds
