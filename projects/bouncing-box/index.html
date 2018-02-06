@@ -63,8 +63,8 @@
 			var width;
 			var height;
 			
-			width = 0;
-			height = 0;
+			width = 70;
+			height = 70;
 			positionX = 0;
 			positionY = 0;
 			directionX = 1;
@@ -73,6 +73,8 @@
 			points = 0;
 			box.css('left', positionX);
 			box.css('top', positionY);
+			box.css('width', width);
+			box.css('height', height);
 			box.text(points);
 			// TODO 3 / 4
 			update = function() {
@@ -108,6 +110,11 @@
 				} else if (speed >= 40) {
 					speed = speed + 3;
 				}
+				var sizeChange = getRandomInt(70, 210);
+				height = sizeChange;
+				width = sizeChange;
+				box.css('height', height);
+				box.css('width', width);
 			};
 			
 			//this calls update every 50 milliseconds
