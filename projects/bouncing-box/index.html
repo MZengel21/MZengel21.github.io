@@ -12,7 +12,7 @@
 		/* TODO 1 */
 		.box {
 			display: block;
-			position: absolute;
+			position: relative;
 			width: 70px;
 			height: 70px;
 			top: 0px;
@@ -26,12 +26,20 @@
 		body {
 			background: rgb(125, 198, 205);
 		}
+		.text {
+			vertical-align: 100%;
+			text-align: center;
+			position: absolute;
+			display: inline-block;
+		}
 	</style>
 
 </head>
 <body class="board">
 	<!-- HTML for the box -->
-	<div class="box">?</div>
+	<div class="box">
+		<p class = 'text'>?</p>
+	</div>
 
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
