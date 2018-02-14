@@ -11,7 +11,7 @@
 	<style>
 		/* TODO 1 */
 		.box {
-			display: block;
+			display: table;
 			position: relative;
 			width: 70px;
 			height: 70px;
@@ -21,16 +21,10 @@
 			font-size: 300%;
 			text-align: center;
 			border-style: double;
-			line-height: 70px;
+			/*line-height: 70px;*/
 		}
 		body {
 			background: rgb(125, 198, 205);
-		}
-		.text {
-			vertical-align: 100%;
-			text-align: center;
-			position: absolute;
-			display: inline-block;
 		}
 	</style>
 
@@ -38,7 +32,7 @@
 <body class="board">
 	<!-- HTML for the box -->
 	<div class="box">
-		<p class = 'text'>?</p>
+		<p class ='text'>?</p>
 	</div>
 
 	<!-- BEGIN JAVASCRIPT -->
@@ -113,9 +107,9 @@
 			// TODO 5 / 6
 			handleBoxClick = function() {
 				points = points + 1;
-				var r = getRandomInt(0, 255);
-			    var g = getRandomInt(0, 255);
-			    var b = getRandomInt(0, 255);
+				var r = getRandomInt(51, 255);
+			    var g = getRandomInt(51, 255);
+			    var b = getRandomInt(51, 255);
 				box.css('background-color', 'rgb(' + r + ',' + g + ',' + b + ')');
 				if (speed < 20) {
 					speed = speed + 1;
