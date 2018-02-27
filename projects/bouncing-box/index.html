@@ -15,8 +15,8 @@
 			position: relative;
 			width: 70px;
 			height: 70px;
-			top: 0px;
-			left: 0px;
+			top: 50%;
+			left: 50%;
 			background-color: teal;
 			font-size: 300%;
 			text-align: center;
@@ -26,21 +26,53 @@
 		body {
 			background: rgb(125, 198, 205);
 		}
+		.textbox {
+			background-color: black;
+			font-size: 14px;
+			position: absolute;
+			color: white;
+			text-align: center;
+			width:300px;
+    		height:140px;
+    		top:50%;
+    		left:50%;
+    		margin-top:-40px;
+		    margin-left:-150px;
+		    display: table;
+		}
+		.button {
+			background-color: gray;
+			display: table;
+			position:absolute;
+			color: black;
+			margin: 0;
+			text-align: center;
+			margin-left: 90px;
+			padding-right: 30px;
+			padding-left: 30px;
+		}
 	</style>
 
 </head>
 <body class="board">
 	<!-- HTML for the box -->
 	<div class="box">?</div>
-
+	<div class="textbox">
+		<p>Bouncing Box</p>
+		<p>Use your mouse to click on the box. Everytime you click on it, it will speed up, change color, and change size. Don't get too frustrated!</p>
+		<div class="button">Play Game</div>
+	</div>
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
 		(function(){
 			'use strict';
 			/* global &*/
-
 			// Variable declarations
 			var box;
+			var textbox;
+			var textboxDisplay;
+			var button;
+			var buttonDisplay;
 			var boardWidth;
 			var update;
 			var handleBoxClick;
@@ -51,6 +83,8 @@
 			}
 			// jQuery stuff setup for you
 			box = $('.box');
+			textbox = $('.textbox');
+			button = $('.button');
 			boardWidth = $('.board').width();
 			boardHeight = $( window ).height();
 
@@ -126,10 +160,17 @@
 				fontSize = Math.floor(sizeChange * 4.29);
 				box.css('font-size', fontSize + '%');
 			};
+			function handleButtonClick() {
+				textboxDisplay = "none";
+				buttonDisplay = "none";
+				button.css('display', buttonDisplay);
+				textbox.css('display', textboxDisplay);
+				setInterval(update, 20);
+			}
 			//this calls update every 50 milliseconds
-			setInterval(update, 20);
 			// this calls the handle handleBoxClick function every time the box is clicked on
 			box.on('click', handleBoxClick);
+			button.on('click', handleButtonClick);
 		})();
 	</script>
 </body>
