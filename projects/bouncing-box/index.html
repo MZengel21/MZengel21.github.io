@@ -50,21 +50,6 @@
 			padding-right: 30px;
 			padding-left: 30px;
 		}
-		.pointsbox {
-			background-color: black;
-			font-size: 14px;
-			position: absolute;
-			color: white;
-			text-align: center;
-			width:150px;
-    		height:80px;
-    		top:93.5%;
-    		left: 10%;
-    		margin-top:-40px;
-		    margin-left:-150px;
-		    display: table;		
-			
-		}
 	</style>
 
 </head>
@@ -76,7 +61,6 @@
 		<p>Use your mouse to click on the box. Everytime you click on it, it will speed up, change color, and change size. Don't get too frustrated!</p>
 		<div class="button">Play Game</div>
 		</div>
-		<div class="pointsbox"><p>Score:<div class="yourPoints">?</div></p></div>
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
 		(function(){
@@ -94,7 +78,6 @@
 			var handleBoxClick;
 			var boardHeight;
 			var points;
-			var worldHighScore;
 			
 			function getRandomInt(min, max) {
 				return Math.floor(Math.random() * (max - min + 1)) + min;
