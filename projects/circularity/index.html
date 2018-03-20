@@ -59,6 +59,13 @@
                     // TODO 4: Push the circle into circles array //
                     circles.push(circle);
                     
+                    circle.addEventListener('click', function(event) {
+                        event.target.velocityX *= -1;
+                        event.target.velocityY *= -1;
+                        drawCircle();
+                        console.log(circles.length);
+                    });
+                    
                 }
                 
                 // TODO 3: Draw 100 circles //
